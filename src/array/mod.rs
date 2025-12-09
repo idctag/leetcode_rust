@@ -9,3 +9,4 @@ pub mod top_k_elements;
 pub mod two_sum;
 pub mod valid_anagram;
 pub mod valid_sudoku;
+pub mod visit_points;
