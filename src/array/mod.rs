@@ -1,7 +1,10 @@
 pub mod contains_duplicate;
+pub mod find_all_missing;
 pub mod group_anagrams;
 pub mod longest_consecutive_sequence;
+pub mod missing_number;
 pub mod product_except_self;
+pub mod smaller;
 pub mod top_k_elements;
 pub mod two_sum;
 pub mod valid_anagram;

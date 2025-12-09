@@ -1,11 +1,12 @@
 // https://leetcode.com/problems/contains-duplicate/
 pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-    let mut nums = nums;
-    nums.sort();
-    for i in 1..nums.len() as usize {
-        if nums[i - 1] == nums[i] {
+    use std::collections::HashSet;
+    let mut exists: HashSet<i32> = HashSet::new();
+    for n in nums {
+        if exists.contains(&n) {
             return true;
         }
+        exists.insert(n);
     }
     false
 }
