@@ -1,13 +1,20 @@
-pub fn solution(_s: String) -> i32 {
-    // use std::collections::HashSet;
-    // if s.len() <= 1 {
-    //     return s.len() as i32;
-    // }
-    // let c_vec = s.chars();
-    // let mut l = 0;
-    // let mut curr_collection: HashSet<char> = HashSet::new();
-    // for r in 1..s.len() {}
-    0
+pub fn solution(s: String) -> i32 {
+    use std::collections::HashMap;
+
+    let mut char_index: HashMap<char, i32> = HashMap::new();
+    let mut max_len = 0;
+    let mut left = 0;
+
+    for (ridx, rv) in s.chars().enumerate() {
+        if let Some(&prev_idx) = char_index.get(&rv) {
+            if prev_idx >= left {
+                left = prev_idx + 1
+            }
+        }
+        char_index.insert(rv, ridx as i32);
+        max_len = max_len.max(ridx as i32 - left + 1)
+    }
+    max_len as i32
 }
 #[cfg(test)]
 mod tests {
@@ -24,5 +31,17 @@ mod tests {
     #[test]
     fn three() {
         assert_eq!(solution("pwwkew".to_string()), 3)
+    }
+    #[test]
+    fn four() {
+        assert_eq!(solution("au".to_string()), 2)
+    }
+    #[test]
+    fn five() {
+        assert_eq!(solution("aa".to_string()), 1)
+    }
+    #[test]
+    fn six() {
+        assert_eq!(solution("dvdf".to_string()), 3)
     }
 }

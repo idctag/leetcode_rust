@@ -5,6 +5,7 @@ pub mod longest_consecutive_sequence;
 pub mod missing_number;
 pub mod product_except_self;
 pub mod smaller;
+pub mod spiral_matrix;
 pub mod top_k_elements;
 pub mod two_sum;
 pub mod valid_anagram;
